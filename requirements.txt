@@ -1,0 +1,4 @@
+requests
+pymysql
+pytz
+beautifulsoup4
