@@ -1,0 +1,13 @@
+export FETCH_DAYS=7
+export ALERT_MAIL='max.power@alertme.at'
+
+export PORTAL_USER='maxpower'
+export PORTAL_PW='xxx'
+export PORTAL_CONTRACT='30300000'
+export PORTAL_METER='AT0050000000000000000000000000000'
+
+export MYSQL_HOST='localhost'
+export MYSQL_USER='tipower'
+export MYSQL_PASSWORD='xxx'
+export MYSQL_DB='tipower'
+export MYSQL_TABLE_PREFIX='zaehlerx'
