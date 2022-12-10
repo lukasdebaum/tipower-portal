@@ -8,9 +8,9 @@ https://kundenportal.tinetz.at
 
 ## Requirements
 
-`apt install python3-requests python3-pymysql python3-tz python3-bs4`
-or
-`pip install -r requirements.txt`
+`apt install python3-requests python3-pymysql python3-tz python3-bs4`  
+or  
+`pip install -r requirements.txt`  
 
 
 ## Config
@@ -32,10 +32,10 @@ export MYSQL_DB='tipower'
 export MYSQL_TABLE_PREFIX='zaehlerx'
 ```
 
-create for each env file the tables zaehlerx_day, zaehlerx_15m
+create for each env file the tables zaehlerx_day, zaehlerx_15m  
 see `tipower-portal.sql`
 
 ## Use
 
-run the wrapper script (as cronjob)
+run the wrapper script (as cronjob)  
 `/opt/tipower-portal/tipower-portal.sh`
