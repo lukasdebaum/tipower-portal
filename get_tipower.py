@@ -59,6 +59,8 @@ def get_contracts(html_raw, contracts):
     html_portal = BeautifulSoup(html_raw, 'html.parser')
 
     contracts_raw = html_portal.find("div", {"class": "accordion-body"})
+    if not contracts_raw:
+        return contracts
 
     for contract_raw in contracts_raw.find_all('a', {"class": "context-menu-entry"}):
         contract_id = contract_raw['title']
@@ -148,15 +150,18 @@ r2 = s.post(url_login, data={'login': portal_user, 'password': portal_pw, 'oneTi
 r3 = s.get(url_portal)
 contracts = dict()
 contracts = get_contracts(r3.text, contracts)
-# current selected contract does not show needed uuid -> select next contract
-first_contract = next(iter(contracts))
-first_contract_uuid = contracts[first_contract]
-c2 = s.get(f"{url_contract}?key={first_contract_uuid}")
-contracts = get_contracts(c2.text, contracts)
-contract_uuid = contracts[portal_contract]
+# if more than one contract found get all contracts uuid
+# if only one contract found, no contract can't selected
+if contracts:
+    # current selected contract does not show needed uuid -> select next contract
+    first_contract = next(iter(contracts))
+    first_contract_uuid = contracts[first_contract]
+    c2 = s.get(f"{url_contract}?key={first_contract_uuid}")
+    contracts = get_contracts(c2.text, contracts)
+    contract_uuid = contracts[portal_contract]
 
-# select contract
-r3 = s.get(f"{url_contract}?key={contract_uuid}")
+    # select contract
+    r3 = s.get(f"{url_contract}?key={contract_uuid}")
 
 # select meter
 r4 = s.get(f"{url_meter}?meteringCode={portal_meter}")
