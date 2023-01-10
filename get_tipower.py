@@ -10,19 +10,20 @@ import datetime
 import pytz
 import pymysql
 
+base_url_portal = 'kundenportal.tinetz.at'
 default_header = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36'}
 gtype_table_map = { 'DAY': '_day',
                     'QUARTER_HOUR': '_15m' }
 
-url_open_portal = 'https://kundenportal.tinetz.at/powercommerce/tinetz/fo/portal/start'
-url_login = 'https://kundenportal.tinetz.at/powercommerce/tinetz/fo/portal/loginProcess'
-url_portal = 'https://kundenportal.tinetz.at/powercommerce/tinetz/fo/portal/home'
-url_contract = 'https://kundenportal.tinetz.at/powercommerce/tinetz/fo/portal/dataContextUpdate'
-url_meter = 'https://kundenportal.tinetz.at/powercommerce/tinetz/fo/portal/consumptionDetails'
-url_data = 'https://kundenportal.tinetz.at/powercommerce/tinetz/fo/portal/analysis/initData'
-url_csv_export = 'https://kundenportal.tinetz.at/powercommerce/tinetz/fo/portal/analysis/csvRequest'
-url_csv_download = 'https://kundenportal.tinetz.at/powercommerce/tinetz/fo/portal/analysis/csvDownload'
-url_logout = 'https://kundenportal.tinetz.at/powercommerce/tinetz/fo/portal/logout'
+url_open_portal = f"https://{base_url_portal}/powercommerce/tinetz/fo/portal/start"
+url_login = f"https://{base_url_portal}/powercommerce/tinetz/fo/portal/loginProcess"
+url_portal = f"https://{base_url_portal}/powercommerce/tinetz/fo/portal/home"
+url_contract = f"https://{base_url_portal}/powercommerce/tinetz/fo/portal/dataContextUpdate"
+url_meter = f"https://{base_url_portal}/powercommerce/tinetz/fo/portal/consumptionDetails"
+url_data = f"https://{base_url_portal}/powercommerce/tinetz/fo/portal/analysis/initData"
+url_csv_export = f"https://{base_url_portal}/powercommerce/tinetz/fo/portal/analysis/csvRequest"
+url_csv_download = f"https://{base_url_portal}/powercommerce/tinetz/fo/portal/analysis/csvDownload"
+url_logout = f"https://{base_url_portal}/powercommerce/tinetz/fo/portal/logout"
 
 fetch_days = int(os.environ['FETCH_DAYS'])
 
