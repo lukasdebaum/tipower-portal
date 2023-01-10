@@ -142,6 +142,7 @@ def get_local_timezone():
 # open session
 s = requests.Session()
 s.headers.update(default_header)
+s.cookies.set("cookie-consent", "true", domain=base_url_portal)
 r1 = s.get(url_open_portal)
 
 # login
